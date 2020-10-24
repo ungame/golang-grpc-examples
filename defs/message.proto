@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package messages.messenger;
+
+option go_package = "messages/messenger";
+
+message Empty {}
+
+message Message {
+    string body = 1;
+}
+
+service MessengerService {
+    rpc WriteMessage(Message) returns (Empty) {}
+    rpc ReadMessage(Empty) returns (Message) {}
+}
